@@ -12,6 +12,10 @@ async function startApolloServer(typeDefs, resolvers) {
         trackAPI: new TrackAPI(),
       };
     },
+    cors: {
+      origin: [new RegExp("/*/")],
+      credentials: true,
+    },
   });
 
   const { url, port } = await server.listen();
